@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Title -->
+  <title>{% block title %}Login{% endblock title %}</title>
+  
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
+  
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+  
+  <!-- Font awesome CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+  
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/animate.min.css' %}">
+  
+  <!-- OwlCarousel CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css' %}">
+  
+  <!-- Magnific popup CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css' %}">
+  
+  <!-- Slicknav CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/slicknav.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/css/perfect-scrollbar.min.css' %}">
+  
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+  
+  <!-- Responsive CSS -->
+  <link rel="stylesheet" href="{% static 'ssets/css/responsive.css' %}">
+  
+  <!--Custom CSS-->
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+  <!-- jQuery -->
+  <script src="{% static 'assets/js/jquery-1.11.3.min.js' %}"></script>
+  </head>
+  {% load crispy_forms_tags %}
+ 
+<body>
+
+<div class="fullwidth-cotnent-block hero-bg-1">
+  <div class="fullwidth-content-tablecell">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6 col-md-offset-3 text-center">
+                  <div class="register-style-1">
+                      <div class="register-logo">
+                          <h1><a href="{% url 'home' %}">Infocity</a></h1>
+                      </div>
+                      <h2>Аутентифікація</h2>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, suscipit animi error molestias pariatur molestiae voluptatum commodi atque quibusdam voluptatem!</p>
+                      <form method="post">
+                        {% csrf_token %}
+                        {% crispy form %}
+                        <div class="register-form-style-1">
+                          
+                          <div class="social-login-btns">
+                            <a class="facebook-color" href="#"><i class="fa fa-facebook"></i> Login with facebook</a>
+                            <a class="twitter-color" href="#"><i class="fa fa-twitter"></i> Login with Google</a>
+                            <a class="github-color" href="#"><i class="fa fa-github"></i> Login with Github</a>
+                          </div>
+                          <p class="password-reset-text">Forget your password? click <a href="index.html">here</a>.</p>
+                        </div>
+                      
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- Bootstrap JS -->
+<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+  
+<!-- Magnific Popup JS -->
+<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+<!-- OwlCarousel JS -->
+<script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+
+<!-- Parallax JS -->
+<script src="{% static 'assets/js/parallax.min.js' %}"></script>
+
+<!-- WOW JS -->
+<script src="{% static 'assets/js/wow-1.3.0.min.js' %}"></script>
+
+<!-- SlickNav JS -->
+<script src="{% static 'assets/js/jquery.slicknav.min.js' %}"></script>
+
+<!-- PerfectScrollbar JS -->
+<script src="{% static 'assets/js/jquery-perfect-scrollbar.min.js' %}"></script>
+
+<!-- Active JS -->
+<script src="{% static 'assets/js/active.js' %}"></script>
+
+</body>
+</html>

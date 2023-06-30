@@ -1,0 +1,8 @@
+user.name=sinner
+user.email=sinner885@gmail.com
+core.repositoryformatversion=0
+core.filemode=true
+core.bare=false
+core.logallrefupdates=true
+remote.aphisha.url=aphisha
+remote.aphisha.fetch=+refs/heads/*:refs/remotes/aphisha/*
