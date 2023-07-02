@@ -166,16 +166,16 @@
                                 </ul>
                             </li>
                              {% if user.is_authenticated %}
-                            <li class="boxed-menu"><a href="#">Додати</a>
+                            <li class="bordered-menu"><a href="#">Додати</a>
                               <ul>
                                 <li><a href="#">Оголошення</a></li>
                                 <li><a href="#">Послугу</a></li>
                                 <li><a href="#">Подію</a></li>
                               </ul>
                             </li>
-                            <li class="bordered-menu"><a href="{% url 'account_logout' %}">Вийти</a></li>
+                            <li class="boxed-menu"><a href="{% url 'account_logout' %}">Вийти</a></li>
                             {% else %}
-                            <li class="bordered-menu"><a href="{% url 'account_login' %}">Війти</a></li>
+                            <li class="bordered-menu"><a href="{% url 'account_login' %}">Увійти</a></li>
                             <li class="bordered-menu"><a href="{% url 'account_signup' %}">Регістрація</a></li>
                             {% endif %}
                         </ul>

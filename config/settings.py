@@ -52,6 +52,9 @@ INSTALLED_APPS = [
 INSTALLED_APPS += [
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',   
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.facebook',
     'crispy_forms',
     'crispy_bootstrap3',
     
@@ -137,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'ru'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 

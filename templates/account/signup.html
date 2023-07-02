@@ -43,6 +43,7 @@
   <script src="{% static 'assets/js/jquery-1.11.3.min.js' %}"></script>
   </head>
   {% load crispy_forms_tags %}
+  {% load socialaccount %}
 <body>
     
 
@@ -64,9 +65,9 @@
                         
                       <div class="register-form-style-1">
                           <div class="social-login-btns">
-                            <a class="facebook-color" href="#"><i class="fa fa-facebook"></i> Login with facebook</a>
+                            <a class="facebook-color" href="{% provider_login_url 'facebook' %}"><i class="fa fa-facebook"></i> Login with facebook</a>
                             <a class="google-plus-color" href="#"><i class="fa fa-twitter"></i> Login with Google</a>
-                            <a class="github-color" href="#"><i class="fa fa-github"></i> Login with Github</a>
+                            <a class="github-color" href="{% provider_login_url 'github' %}"><i class="fa fa-github"></i> Login with Github</a>
                           </div>
                           <p class="password-reset-text">Forget your password? click <a href="index.html">here</a>.</p>
                       </div>
