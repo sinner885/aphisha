@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
     
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{% static 'ssets/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
     
     <!--Custom CSS-->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -71,23 +71,11 @@
                 <div class="col-md-9">
                     <div class="mainmenu">
                         <ul id="navigation">
-                            <li class="current_page_item"><a href="index.html">Homepages</a>
-                                <ul>
-                                    <li><a href="index.html">Homepage Agency</a></li>
-                                    <li><a href="home-startup.html">Homepage Startup</a></li>
-                                    <li><a href="home-construction.html">Homepage Construction</a></li>
-                                    <li><a href="home-education.html">Homepage Education</a></li>
-                                    <li><a href="home-finance.html">Homepage Finance</a></li>
-                                </ul>
+                            <li class="current_page_item"><a href="{% url 'home' %}">Homepages</a>
+                                
                             </li>
-                            <li><a href="about-agency.html">About us</a>
-                                <ul>
-                                    <li><a href="about-agency.html">About Us Agency</a></li>
-                                    <li><a href="about-startup.html">About Us Startup</a></li>
-                                    <li><a href="about-construction.html">About Us Construction</a></li>
-                                    <li><a href="about-education.html">About Us Education</a></li>
-                                    <li><a href="about-finance.html">About Us Finance</a></li>
-                                </ul>
+                            <li><a href="#">Оголошення</a>
+                                
                             </li>
                             <li class="semi-mega-menu"><a href="services-agency.html">Services</a>
                                 <ul>

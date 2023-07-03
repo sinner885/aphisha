@@ -194,3 +194,5 @@ ACCOUNT_FORMS = {
     'signup': 'users.forms.SignupForm',
     # Другие формы, если необходимо
 }
+
+DEFAULT_FROM_EMAIL = "admin@infopogreb.com"

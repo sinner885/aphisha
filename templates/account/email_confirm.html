@@ -1,0 +1,37 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Підтвердження E-mail" %}{% endblock %}
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+<h1>{% trans "Підтвердити E-mail" %}</h1>
+
+{% if confirmation %}
+
+{% user_display confirmation.email_address.user as user_display %}
+
+<p>{% blocktrans with confirmation.email_address.email as email %}Підтвердіть, що 
+    <a href="mailto:{{ email }}">{{ email }}</a> 
+    являється ел.поштою користрувача {{ user_display }}.{% endblocktrans %}
+</p>
+<div class="login-form-style-1"></div>
+    <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+    {% csrf_token %}
+    {{ form|crispy }}
+        <button class="btn btn-primary" type="submit">{% trans 'Підтвердити' %}</button>
+    </form>
+</div>
+
+{% else %}
+
+{% url 'account_email' as email_url %}
+
+<p>{% blocktrans %}This e-mail confirmation link expired or is invalid. Please <a href="{{ email_url }}">issue a new e-mail confirmation request</a>.{% endblocktrans %}</p>
+
+{% endif %}
+
+{% endblock %}
