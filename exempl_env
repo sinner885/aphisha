@@ -1,0 +1,15 @@
+SECRET_KEY=''
+DEBUG=True
+ALLOWED_HOSTS=127.0.0.1 localhost 0.0.0.0 192.168.0.79
+
+DB_NAME=
+DB_USER=
+DB_PASSWORD=
+DB_HOST=
+DB_PORT=
+
+EMAIL_HOST=smtp.gmail.com
+EMAIL_HOST_USER=ingopogreb@gmail.com
+EMAIL_HOST_PASSWORD=ensjijkduzsbdcsr
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
