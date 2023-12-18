@@ -23,4 +23,5 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # local
     path("", include("pages.urls")),
+    path("", include("adverts.urls")),
 ]

@@ -1,4 +1,5 @@
 .venv
+.venv_a
 .env
 */migrations
 /media

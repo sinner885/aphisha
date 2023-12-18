@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Title -->
-    <title>{% block title %}infopogreb{% endblock title %}</title>
+    <title>{% block title %}{{ title }}{% endblock title %}</title>
 
         <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="{% static 'assets/img/favicon.png' %}">
@@ -74,7 +74,7 @@
                             <li class="current_page_item"><a href="{% url 'home' %}">Homepages</a>
                                 
                             </li>
-                            <li><a href="#">Оголошення</a>
+                            <li><a href="{% url 'adverts' %}">Оголошення</a>
                                 
                             </li>
                             <li class="semi-mega-menu"><a href="services-agency.html">Services</a>
