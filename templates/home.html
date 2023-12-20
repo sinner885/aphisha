@@ -6,13 +6,15 @@
 
     <div class="container">
         <div class="row">
+            {% for advert in adverts %}
             <div class="col-sm-4">
                 <div class="service-box-style-5 wow fadeInUp">
-                    <h3>Web Design</h3>
-                    <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
+                    <h3>{{ advert.subject }}</h3>
+                    <p>{{ advert.description }}</p>
                     <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
+            {% endfor %}
             <div class="col-sm-4">
                 <div class="service-box-style-5 wow fadeInUp" data-wow-delay="1.05s">
                     <h3>Branding</h3>

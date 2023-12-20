@@ -28,6 +28,18 @@ class Category(models.Model):
 
 class Advert(models.Model):
     """Объявления"""
+
+    class AdverteManager(models.Manager):
+        """
+        Кастомный менеджер для модели статей
+        """
+
+        def all(self):
+            """
+            Список статей (SQL запрос с фильтрацией для страницы списка статей)
+            """
+            return self.object.order_by('-created')
+
     TYPE_PRODUCT = (
         ('нове', 'нове'),
         ('подержане', 'подержане'),
@@ -62,6 +74,7 @@ class Advert(models.Model):
     location = models.CharField('Локація', max_length=50, blank=True)
 
     objects = models.Manager()
+    custom = AdverteManager()
 
     def save(self, *args, **kwargs):
         """
