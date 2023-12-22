@@ -132,7 +132,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en'
+LANGUAGE_CODE = 'uk'
 
 TIME_ZONE = 'UTC'
 
@@ -140,6 +140,37 @@ USE_I18N = True
 
 USE_TZ = True
 
+CMS_LANGUAGES = {
+## используем укр. мову
+'default': {
+    'public': True,
+    'hide_untranslated': False,
+    'redirect_on_fallback': True,
+},
+1: [
+    {
+        'name': 'Русский',
+        'public': True,
+        'hide_untranslated': False,
+        'redirect_on_fallback': True,
+        'code': 'ru',
+    },
+    {
+        'name': 'Українська',
+        'public': True,
+        'hide_untranslated': False,
+        'redirect_on_fallback': True,
+        'code': 'uk',
+    },
+    {
+        'name': 'English',
+        'public': True,
+        'hide_untranslated': False,
+        'redirect_on_fallback': True,
+        'code': 'en',
+    },
+],
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

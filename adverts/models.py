@@ -25,20 +25,14 @@ class Category(models.Model):
         verbose_name = "Категория"
         verbose_name_plural = 'Категории'
 
+class AdvertModer(models.Manager):
+    """метод вывода видимых объявлений"""
+    def moderation(self):
+        return self.filter(moderation=True)
+
 
 class Advert(models.Model):
     """Объявления"""
-
-    class AdverteManager(models.Manager):
-        """
-        Кастомный менеджер для модели статей
-        """
-
-        def all(self):
-            """
-            Список статей (SQL запрос с фильтрацией для страницы списка статей)
-            """
-            return self.object.order_by('-created')
 
     TYPE_PRODUCT = (
         ('нове', 'нове'),
@@ -74,7 +68,7 @@ class Advert(models.Model):
     location = models.CharField('Локація', max_length=50, blank=True)
 
     objects = models.Manager()
-    custom = AdverteManager()
+    custom = AdvertModer()
 
     def save(self, *args, **kwargs):
         """

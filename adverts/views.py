@@ -8,12 +8,13 @@ class AdvertPageView(ListView):
     """Вывод на странице Объявления"""
     model = Advert
     template_name = "adverts/adverts.html"
-    context_object_name = 'adverts'
+    #context_object_name = 'adverts'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Оголошення'
-        context['categorys'] = Category.objects.all() 
+        context['categorys'] = Category.objects.all()
+        context['adverts'] = Advert.custom.moderation().order_by('-created')
         return context
 
 

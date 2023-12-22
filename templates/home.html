@@ -2,58 +2,10 @@
 {% block title %}{{ title }}{% endblock title %}
 {% block content %}
 
-    <div class="spacer-30"></div>
 
-    <div class="container">
-        <div class="row">
-            {% for advert in adverts %}
-            <div class="col-sm-4">
-                <div class="service-box-style-5 wow fadeInUp">
-                    <h3>{{ advert.subject }}</h3>
-                    <p>{{ advert.description }}</p>
-                    <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            {% endfor %}
-            <div class="col-sm-4">
-                <div class="service-box-style-5 wow fadeInUp" data-wow-delay="1.05s">
-                    <h3>Branding</h3>
-                    <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                    <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="service-box-style-5 wow fadeInUp" data-wow-delay="1.1s">
-                    <h3>24/7 support</h3>
-                    <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                    <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="service-box-style-5 wow fadeInUp" data-wow-delay="1.15s">
-                    <h3>UI/UX design</h3>
-                    <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                    <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="service-box-style-5 wow fadeInUp" data-wow-delay="1.2s">
-                    <h3>App Development</h3>
-                    <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                    <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="service-box-style-5 wow fadeInUp" data-wow-delay="1.25s">
-                    <h3>Content writing</h3>
-                    <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                    <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 
-    <div class="spacer-30"></div>-->
+    
 
     <div class="content-block gray-bg">
         <div class="container">
@@ -65,52 +17,18 @@
             </div>
 
             <div class="row">
-                <div class="col-sm-4 wow fadeInUp">
+                {% for advert in adverts %}
+                <div class="col-sm-6 wow fadeInUp">
                     <div class="service-box-style-2">
-                        <span class="ticker green-bg">Popular</span>
-                        <h3>Career Development</h3>
-                        <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                        <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
+                        <span class="ticker green-bg">{{ advert.created|timesince }}</span>
+                        <h3>{{ advert.subject }}</h3>
+                        <p>{{ advert.description|truncatewords:8 }}</p>
+                        <a href="{{ advert.get_absolute_url }}" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
+                        <p>{{ advert.created|date:"D d E Y" }}</p>
                     </div>
                 </div>
-                <div class="col-sm-4 wow fadeInUp">
-                    <div class="service-box-style-2">
-                        <span class="ticker green-bg">Popular</span>
-                        <h3>Career Development</h3>
-                        <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                        <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow fadeInUp">
-                    <div class="service-box-style-2">
-                        <span class="ticker green-bg">Popular</span>
-                        <h3>Career Development</h3>
-                        <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                        <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow fadeInUp" data-wow-delay="1.4s">
-                    <div class="service-box-style-2">
-                        <span class="ticker orange-bg">Trending</span>
-                        <h3>UX Design</h3>
-                        <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                        <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow fadeInUp" data-wow-delay="1.1s">
-                    <div class="service-box-style-2">
-                        <h3>Photography</h3>
-                        <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                        <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                    </div>
-                </div>
-                <div class="col-sm-4 wow fadeInUp" data-wow-delay="1.2s">
-                    <div class="service-box-style-2">
-                        <h3>Web Developement</h3>
-                        <p>Our awesome members are ready to create your dream website project with passion and dedication.</p>
-                        <a href="" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
-                    </div>
-                </div>
+                {% endfor %}
+                
             </div>
 
             <div class="spacer-45 hidden-xs"></div>
@@ -140,6 +58,43 @@
                 </div>
             </div>-->
 
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="cta-area wow fadeInUp">
+                    <h2>20% Off</h2>
+                    <p>on your first project</p>
+
+                    <a href="get-a-quote-1.html" class="boxed-btn cta-btn">Get started now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-block">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center wow fadeInUp">
+                    <h3>Courses we are offering now</h3>
+                    <div class="spacer-30"></div>
+                </div>
+            </div>
+            <div class="row">
+                {% for advert in adverts %}
+                <div class="col-sm-6">
+                    <div class="service-box-style-5 wow fadeInUp">
+                        <h3>{{ advert.subject }}</h3>
+                        <p>{{ advert.description|truncatewords:8 }}</p>
+                        <a href="{{ advert.get_absolute_url }}" class="readmore-btn">Детальніше<i class="fa fa-angle-right"></i></a>
+                        <p>{{ advert.created|date:"D d E Y" }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+                
+            </div>
         </div>
     </div>
 
