@@ -3,7 +3,7 @@ from django.db import models
 from django.urls import reverse
 from django.conf import settings
 
-from modules.services.utils import unique_slugify
+from modules.servicess.utils import unique_slugify
 
 
 
@@ -47,7 +47,7 @@ class Advert(models.Model):
     )
 
     category = models.ForeignKey(
-        Category, verbose_name="Категорія*", on_delete=models.CASCADE)
+        Category, verbose_name="Категорія*", on_delete=models.CASCADE, related_name='adverts_category')
     types_ad = models.CharField(
         max_length=9, choices=TYPE_AD, blank=True, verbose_name="тип об'яви")
     types_pr = models.CharField(
@@ -64,7 +64,7 @@ class Advert(models.Model):
     moderation = models.BooleanField("Модерация", default=True)
     slug = models.CharField(verbose_name='Альт.название', max_length=255, blank=True, unique=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name='Пользователь',
-                             on_delete=models.CASCADE, related_name='adverts')
+                             on_delete=models.CASCADE, related_name='adverts_user')
     location = models.CharField('Локація', max_length=50, blank=True)
 
     objects = models.Manager()

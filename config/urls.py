@@ -26,6 +26,7 @@ urlpatterns = [
     # local
     path("", include("pages.urls")),
     path("", include("adverts.urls")),
+    path("", include("services.urls")),
 ]
 
 if settings.DEBUG:

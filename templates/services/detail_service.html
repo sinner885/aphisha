@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+
+<div class="content-block">
+    <div class="container">
+        
+        <div class="row">
+            <div class="col-md-8">
+                <h3>Work description</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur ab culpa quisquam non molestiae. Laborum aperiam maiores minus assumenda obcaecati at autem in explicabo, eius delectus saepe velit, quibusdam accusantium consequatur adipisci praesentium nihil, vero nemo deserunt vel. Magni, cupiditate.</p>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam harum pariatur nulla eum beatae impedit sequi vero, qui cumque? Necessitatibus?</p>
+                <div class="spacer-30"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>How we did</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dolore possimus repellat commodi corporis quia minima enim quae architecto modi velit saepe et pariatur ullam nobis magni labore eaque sequi consequatur explicabo quod, aliquid vitae. Vitae vel possimus facere voluptatum.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Analytic results</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi dolore possimus repellat commodi corporis quia minima enim quae architecto modi velit saepe et pariatur ullam nobis magni labore eaque sequi consequatur explicabo quod, aliquid vitae. Vitae vel possimus facere voluptatum.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="white-box">
+                    <h3>Work info</h3>
+                    <ul class="project-info">
+                        <li><span>Client:</span> Rasel Ahmed</li>
+                        <li><span>Date:</span> 27 December 2016</li>
+                        <li><span>Location:</span> Dhaka, Bangladesh</li>
+                        <li><span>Category:</span> Construction</li>
+                        <li><span>Budget:</span> $23999</li>
+                        <li><span>Time:</span> 36 Days</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="work-slider">
+                    <img src="{% static 'assets/img/work-slide-1.jpeg' %}" alt="">
+                    <img src="assets/img/work-slide-1.jpeg" alt="">
+                    <img src="assets/img/work-slide-1.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

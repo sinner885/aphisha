@@ -7,9 +7,8 @@ class CategoryAdmin(admin.ModelAdmin):
     """Категории"""
     list_display = ('name', 'id', 'slug', 'icon')
     prepopulated_fields = {"slug": ("name",)}
-    
 
-  
+
 @admin.register(Advert)
 class AdvertAdmin(admin.ModelAdmin):
     """Объявления"""

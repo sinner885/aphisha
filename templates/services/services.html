@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ title }}{% endblock title %}
+{% block content %}
+
+<div class="content-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center wow fadeInUp">
+                <h3>Courses we are offering now</h3>
+                <div class="spacer-30"></div>
+            </div>
+        </div>
+        
+        <div class="row">
+            {% for service in services %}
+            <div class="col-md-4">
+                <h3>{{ service.subject }}</h3>
+                <p>{{ service.description|truncatewords:15 }} </p>
+                <a href="{{ service.get_absolute_url }}" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
+            </div>
+            <div class="col-md-4 text-center">
+                <img src="{% static 'assets/img/bucket.jpg' %}" alt="" class="img-rounded">
+            </div>
+            <div class="col-md-4">
+                <div class="white-box">
+                    <h3>Work info</h3>
+                    <ul class="project-info">
+                        <li><span>Client:</span> Rasel Ahmed</li>
+                        <li><span>Date:</span> 27 December 2016</li>
+                        <li><span>Location:</span> Dhaka, Bangladesh</li>
+                        <li><span>Category:</span> Construction</li>
+                        <li><span>Budget:</span> $23999</li>
+                        <li><span>Time:</span> 36 Days</li>
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

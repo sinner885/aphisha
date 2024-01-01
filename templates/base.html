@@ -71,32 +71,10 @@
                 <div class="col-md-9">
                     <div class="mainmenu">
                         <ul id="navigation">
-                            <li class="current_page_item"><a href="{% url 'home' %}">Homepages</a>
-                                
-                            </li>
-                            <li><a href="{% url 'adverts' %}">Оголошення</a>
-                                
-                            </li>
-                            <li class="semi-mega-menu"><a href="services-agency.html">Services</a>
-                                <ul>
-                                    <li><a href="">Services <span>Our Awesome Services</span></a>
-                                        <ul>
-                                            <li><a href="services-agency.html">Services - Agency</a></li>
-                                            <li><a href="services-startup.html">Services - Startup</a></li>
-                                            <li><a href="services-construction.html">Services - Construction</a></li>
-                                            <li><a href="courses-education.html">Courses - Education</a></li>
-                                            <li><a href="services-finance.html">Services - Finance</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">Single Services <span>Get very details</span></a>
-                                        <ul>
-                                            <li><a href="single-service-agency.html">Single Service 1</a></li>
-                                            <li><a href="single-service-education.html">Single Service 2</a></li>
-                                            <li><a href="single-service-finance.html">Single Service 3</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
+                            <li class="current_page_item"><a href="{% url 'home' %}">Домашня</a></li>
+                            <li><a href="{% url 'adverts' %}">Оголошення</a></li>   
+                            <li class="semi-mega-menu"><a href="{% url 'services' %}">Послуги</a></li>    
+                            
                             <li><a href="works-agency.html">Works</a>
                                 <ul>
                                     <li><a href="works-agency.html">Works - Agency</a></li>
@@ -156,7 +134,7 @@
                              {% if user.is_authenticated %}
                             <li class="bordered-menu"><a href="#">Додати</a>
                               <ul>
-                                <li><a href="#">Оголошення</a></li>
+                                <li><a href="{% url 'adverts_create' %}">Оголошення</a></li>
                                 <li><a href="#">Послугу</a></li>
                                 <li><a href="#">Подію</a></li>
                               </ul>
@@ -184,6 +162,36 @@
         </div>
     </div>
     <!-- закр. титулка -->
+    <div class="wide-buttons-wrap">
+        <a href="" class="wide-button-item button-bg-1">
+            <span class="wide-button-bg" style="background-image: url(assets/img/education-case-4.jpg);"></span>
+            <span class="wide-button-content">
+                <h3>Free Courses</h3>
+                Get instant access to our free courses
+            </span>
+        </a>
+        <a href="" class="wide-button-item button-bg-1">
+            <span class="wide-button-bg" style="background-image: url(assets/img/education-case-3.jpg);"></span>
+            <span class="wide-button-content">
+                <h3>Notice Board</h3>
+                Get instant access to our free courses
+            </span>
+        </a>
+        <a href="" class="wide-button-item button-bg-1">
+            <span class="wide-button-bg" style="background-image: url(assets/img/education-case-2.jpg);"></span>
+            <span class="wide-button-content">
+                <h3>Student Forum</h3>
+                Get instant access to our free courses
+            </span>
+        </a>
+        <a href="" class="wide-button-item button-bg-1">
+            <span class="wide-button-bg" style="background-image: url(assets/img/education-case-1.jpg);"></span>
+            <span class="wide-button-content">
+                <h3>Trainers</h3>
+                Get instant access to our free courses
+            </span>
+        </a>
+    </div> 
     {% block content %}
     {% endblock content %}
 

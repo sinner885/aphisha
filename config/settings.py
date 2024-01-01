@@ -46,7 +46,6 @@ INSTALLED_APPS += [
     'allauth.socialaccount.providers.facebook',
     'crispy_forms',
     'crispy_bootstrap3',
-    'modules.services',
     'debug_toolbar',
 
 ]
@@ -56,7 +55,9 @@ INSTALLED_APPS += [
 
     'users',
     'pages',
+    'modules.servicess',
     'adverts',
+    'services',
 ]
 
 MIDDLEWARE = [
