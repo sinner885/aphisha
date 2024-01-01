@@ -1,6 +1,7 @@
 .venv
 .venv_a
 .env
+.venv_a
 */migrations
 /media
 /static
