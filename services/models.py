@@ -1,3 +1,4 @@
+'''Модель услуг'''
 from django.db import models
 from django.urls import reverse
 from django.conf import settings
@@ -12,21 +13,24 @@ class CategoryService(models.Model):
     icon = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
 
     objects = models.Manager()
-    
+
     def __str__(self):
         return str(self.name)
 
     def get_absolute_url(self):
+        '''url'''
         return reverse("servece_by_category", kwargs={"slug": self.slug})
-     
+
     class Meta:
-         verbose_name = "Категория услуг"
-         verbose_name_plural ='Категории услуг'
+        '''m'''
+        verbose_name = "Категория услуг"
+        verbose_name_plural ='Категории услуг'
 
 
 class ServiceModer(models.Manager):
     """метод вывода видимых объявлений"""
     def moderation(self):
+        '''менеджер'''
         return self.filter(moderation=True)
 
 class Service(models.Model):
@@ -63,9 +67,11 @@ class Service(models.Model):
         return str(self.subject)
 
     def get_absolute_url(self):
+        '''url'''
         return reverse("detail_service", kwargs={ "slug": self.slug})
 
     class Meta:
+        '''m'''
         verbose_name = "Послуга"
         verbose_name_plural = "Послуги"
 

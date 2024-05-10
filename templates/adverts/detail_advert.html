@@ -8,6 +8,14 @@
         <div class="row">
             <div class="col-sm-8">
                 <article class="post wow fadeInUp">
+                    {% if request.user == advert.user %}
+                    <div class="post-title-wrap">
+                        <p>
+                            <a href="{% url 'advert_update' slug=advert.slug %}">змінити</a>
+                            <a href="{% url 'advert_delete' slug=advert.slug %}">видалити</a>
+                        </p>
+                    </div>
+                    {% endif %}
                     <div class="featured-content">
                         <img src="{% static 'assets/img/post.jpg' %}" alt="">
                     </div>

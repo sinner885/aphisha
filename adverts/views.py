@@ -1,8 +1,9 @@
 """modul"""
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
+from django.urls import reverse_lazy
 # from django.shortcuts import render
 from .models import Advert, Category
-from .forms import AdvertCreateForm
+from .forms import AdvertCreateForm, AdvertUpdateForm
 
 
 class AdvertPageView(ListView):
@@ -15,7 +16,7 @@ class AdvertPageView(ListView):
     def get_queryset(self):
         queryset = Advert.custom.moderation().order_by('-created')
         return queryset
-        
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Оголошення'
@@ -37,20 +38,18 @@ class AdvertDetailView(DetailView):
 
 
 
-
 class AdvertByCategoryListView(ListView):
     '''список объявлений по категории'''
     model = Advert
     template_name = 'adverts/adverts.html'
     context_object_name = 'adverts'
-    
     category = None
 
     def get_queryset(self):
         self.category = Category.objects.get(slug=self.kwargs['slug'])
         queryset = Advert.custom.moderation().order_by('-created').filter(category__slug=self.category.slug)
         return queryset
-       
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -75,3 +74,38 @@ class AdvertCreateView(CreateView):
         form.instance.user = self.request.user
         form.save()
         return super().form_valid(form)
+
+
+class AdvertUpdateView(UpdateView):
+    """
+    Представление: обновления материала на сайте
+    """
+    model = Advert
+    template_name = 'adverts/advert_update.html'
+    context_object_name = 'advert'
+    form_class = AdvertUpdateForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f'Оновлення оголошення: {self.object.subject}'
+        return context
+
+    def form_valid(self, form):
+        form.instance.updater = self.request.user
+        form.save()
+        return super().form_valid(form)
+
+
+class AdvertDeleteView(DeleteView):
+    """
+    Представление: удаления материала
+    """
+    model = Advert
+    success_url = reverse_lazy('adverts')
+    context_object_name = 'advert'
+    template_name = 'adverts/advert_delete.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f'Видалення оголошення: {self.object.subject}'
+        return context

@@ -5,6 +5,7 @@ from services.models import Service
 
 
 class HomePageView(TemplateView):
+    '''Домашняя страница со всем по чуть-чуть'''
     template_name = "home.html"
     
 

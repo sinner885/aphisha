@@ -10,7 +10,24 @@ class AdvertCreateForm(forms.ModelForm):
         fields = ('category', 'subject', 'types_ad',
                  'types_pr', 'description', 'images',
                  'name', 'email', 'telefon', 'location')
+    # заменить на crispy
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({
+                'class': 'form-group',
+                'autocomplete': 'off'
+            })
 
+
+class AdvertUpdateForm(forms.ModelForm):
+    '''форма редактирования объяв. на сайте'''
+    class Meta:
+        model = Advert
+        fields = ('category', 'subject', 'types_ad',
+                 'types_pr', 'description', 'images',
+                 'name', 'email', 'telefon', 'location')
+    # заменить на crispy
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         for field in self.fields:

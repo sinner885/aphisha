@@ -6,11 +6,11 @@
 <div class="content-block">
     <div class="container">
         <div class="row">
-            <form method="post" action="{% url 'adverts_create' %}" enctype="multipart/form-data">
+            <form method="post"  enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <div class="d-grid gap-2 d-md-block mt-2">
-                    <button type="submit" class="btn btn-dark">Додати</button>
+                    <button type="submit" class="btn btn-red">Видалити</button>
                 </div>
             </form>
         </div>
