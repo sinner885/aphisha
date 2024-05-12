@@ -16,11 +16,12 @@
                                 {{ advert.created }}
                             </a>
                         </div>
+                        {% empty %}
+                        <p>Нажаль, в даній категорії ще немає об'яв.</p>
                         {% endfor %}
-                        
                     </div>
                     
-                    {% include 'inc/paginator.html' %}
+                        {% include 'inc/paginator.html' %}
                     
                     
                 </div>

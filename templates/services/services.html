@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load static %}
 {% block title %}{{ title }}{% endblock title %}
 {% block content %}
 
@@ -13,29 +12,50 @@
         </div>
         
         <div class="row">
-            {% for service in services %}
-            <div class="col-md-4">
-                <h3>{{ service.subject }}</h3>
-                <p>{{ service.description|truncatewords:15 }} </p>
-                <a href="{{ service.get_absolute_url }}" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
+            <div class="col-md-8">
+                <div class="row">
+                    {% for service in services %}
+                    <h3>{{ service.subject }}</h3>
+                    <p>{{ service.description|truncatewords:15 }} </p>
+                        <a href="{{ service.get_absolute_url }}" class="readmore-btn">See more  <i class="fa fa-angle-right"></i></a>
+                    {% empty %}
+                    <p>Нажаль, в даній категорії ще немає послуг.</p>
+                    {% endfor %}
+                </div> 
+                {% include 'inc/paginator.html' %}                 
             </div>
-            <div class="col-md-4 text-center">
-                <img src="{% static 'assets/img/bucket.jpg' %}" alt="" class="img-rounded">
-            </div>
-            <div class="col-md-4">
-                <div class="white-box">
-                    <h3>Work info</h3>
-                    <ul class="project-info">
-                        <li><span>Client:</span> Rasel Ahmed</li>
-                        <li><span>Date:</span> 27 December 2016</li>
-                        <li><span>Location:</span> Dhaka, Bangladesh</li>
-                        <li><span>Category:</span> Construction</li>
-                        <li><span>Budget:</span> $23999</li>
-                        <li><span>Time:</span> 36 Days</li>
+            
+            <div class="col-sm-4">
+                <div class="widget">
+                    <form class="search-form" action="blog.html">
+                        <input type="search" placeholder="Type to search here...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                
+               
+                
+                <div class="widget category_list">
+                    <h3 class="widget-title">Категорії</h3>
+                    <ul>
+                        {% for category in categorys %}
+                        <li><a href="{{ category.get_absolute_url }}">{{category.name}}</a></li>
+                        {% endfor %}
+                        
                     </ul>
                 </div>
+
+                <div class="widget recent_posts">
+                    <h3 class="widget-title">Recent posts</h3>
+                    <ul>
+                        <li><a href="">How to Create a Countdown Timer With a Full Screen Background Video. <span>21st Nov, 2016</span></a></li>
+                        <li><a href="">How to Re-Order Your Blog Posts (with 2 Methods) <span>21st Nov, 2016</span></a></li>
+                        <li><a href="">How to Create a Countdown Timer With a Full Screen Background Video. <span>21st Nov, 2016</span></a></li>
+                        <li><a href="">How to Re-Order Your Blog Posts (with 2 Methods) <span>21st Nov, 2016</span></a></li>
+                    </ul>
+                </div>
+
             </div>
-            {% endfor %}
         </div>
     </div>
 </div>
